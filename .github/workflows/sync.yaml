@@ -31,5 +31,5 @@ jobs:
           aws-region: ${{ env.AWS_REGION }}
       - name: Sync s3 bucket
         run: |
-          aws s3 sync . s3://${{ env.BUCKET_NAME }} --exclude "*node_modules/*"
+          aws s3 sync out s3://${{ env.BUCKET_NAME }} --recursive
           aws cloudfront create-invalidation --distribution-id E4Y9DXT2MCPYL --paths '/*' 
